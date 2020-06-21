@@ -8,25 +8,32 @@ app.use(cors())
 app.use(express.json())
 
 let products = productsList
-let productsWished = []
+let productsWishedId = []
+let ids = []
 
 app.get('/products', (request, response) => {
 return response.json(products)
 })
 
 app.get('/wishlist', (request, response) => {
+    //map para passar os valores para a variável, para não ter que comparar um array de objetos com um número
+    productsWishedId.map(productWishedId => (
+         ids.push(productWishedId.id)
+    ))
+    console.log(ids)
+
+    const productsWished = products.filter(product => ids.includes(product.rank))
     return response.json(productsWished)
 })
 
 app.post('/wishlist', (request, response) => {
     const id = request.body
 
-    productsWished.push(id)
-
-    return response.json(productsWished)
+    productsWishedId.push(id)
+    console.log(productsWishedId)
+    return response.json(productsWishedId)
 })
     
-
 app.listen(3333, () => {
     console.log('Backend started!');
 });
