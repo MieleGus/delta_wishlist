@@ -6,7 +6,7 @@ const app = express()
 app.use(express.json())
 
 let products = productsList
-let productsLiked = []
+let productsWished= []
 app.get('/products', (request, response) => {
 return response.json(products)
 })
