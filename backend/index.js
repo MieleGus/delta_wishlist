@@ -8,11 +8,24 @@ app.use(cors())
 app.use(express.json())
 
 let products = productsList
-let productsWished= []
+let productsWished = []
 
 app.get('/products', (request, response) => {
 return response.json(products)
 })
+
+app.get('/wishlist', (request, response) => {
+    return response.json(productsWished)
+})
+
+app.post('/wishlist', (request, response) => {
+    const id = request.body
+
+    productsWished.push(id)
+
+    return response.json(productsWished)
+})
+    
 
 app.listen(3333, () => {
     console.log('Backend started!');

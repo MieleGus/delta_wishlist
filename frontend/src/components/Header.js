@@ -4,11 +4,11 @@ const Header = () => {
 
     return (
         <>
-        <nav class="navbar navbar-dark bg-dark">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="navbar-brand" href="#">Produtos</a>
-                    <a class="navbar-brand" href="#">Lista de desejos</a>
+        <nav className="navbar navbar-dark bg-dark">
+            <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                    <a className="navbar-brand" href="#">Produtos</a>
+                    <a className="navbar-brand" href="#">Lista de desejos</a>
                 </li>
             </ul>
             
