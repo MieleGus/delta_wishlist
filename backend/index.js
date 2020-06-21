@@ -1,12 +1,15 @@
+const cors = require('cors')
 const express = require('express')
 const axios = require('axios');
 const productsList = require('./apitext.json') 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
 let products = productsList
 let productsWished= []
+
 app.get('/products', (request, response) => {
 return response.json(products)
 })
