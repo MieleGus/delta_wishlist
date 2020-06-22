@@ -1,20 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import api from '../../services/api'
 
 import Header from '../../components/Header'
-
-// const [products, setProducts] = useState([])
-
-    // useEffect(() => {
-    // api.get('products').then(response => {
-    //     setProducts(response.data)
-    // })
-    // }, [])
+import Cards from '../../components/Cards'
 
 
 const Wishlist = () => {
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+    api.get('wishlist').then(response => {
+        setProducts(response.data)
+    })
+    }, [])
+    
     return (
         <>
         <Header/>
+        <Cards products={products} />
         </>
     )
 }
