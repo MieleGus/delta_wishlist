@@ -6,18 +6,18 @@ import Cards from '../../components/Cards'
 
 
 const Wishlist = () => {
-    const [products, setProducts] = useState([])
-
+    const [productsWished, setProductsWished] = useState([])
+    
     useEffect(() => {
     api.get('wishlist').then(response => {
-        setProducts(response.data)
+        setProductsWished(response.data)
     })
     }, [])
-    
+
     return (
         <>
         <Header/>
-        <Cards products={products} />
+        <Cards products={productsWished} dontShow={true}/>
         </>
     )
 }
